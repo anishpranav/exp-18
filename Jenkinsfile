@@ -9,9 +9,12 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/yourusername/exp-18.git'
+                git branch: 'main',
+                credentialsId: 'github-creds',
+                url: 'https://github.com/anishpranav/exp-18.git'
             }
         }
+
 
         stage('Build Docker Image') {
             steps {
